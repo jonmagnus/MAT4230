@@ -12,6 +12,8 @@ header-includes: |
     \newcommand{\F}{\mathbb F}
     \newtheorem{proposition}{Proposisjon}
     \newtheorem{remark}{Bemerkning}
+    \newtheorem{lemma}{Lemma}
+    \renewcommand*{\proofname}{Bevis}
 ...
 
 # Veronese
@@ -72,28 +74,93 @@ Picardgruppen $\Pic F_n$ til de geometrisk reglerte flatene er generert av $h$ o
 hvor $hf=1$, $h^2=n$ og $f^2=0$.
 \end{remark}
 
-Vi får at graden til flaten blir $H^2=(2h - E)^2 = d^2 - 1$.
+Vi benevner flaten i bildet $S$.
+Vi får at graden til $S$ blir $H^2=(2h - E)^2 = d^2 - 1$.
 
+\begin{proposition}
+De eneste linjene på $S$ er $f$ og $E$.
+\end{proposition}
+\begin{proof}
+Vi ser at $fH=f(f + h)=1$, så fibrene avbilder på linjer på flaten.
+Vi har også $EH=(h - f)(f + h)=2 - 1=1$, så den eksepsjonelle divisoren avbilder også på en linje.
+Generelt, anta vi har en linje $C=ah + bf$ for $a,b\geq e$.
+Da har vi $C(h + f)=2a + b$, så $a=0$ og $b = 1$, som gir oss fiberet.
+\end{proof}
 
----
+# Generell projeksjon av $S$
 
-Generiske projeksjoner bevarer graden til flaten siden det er en avbildning fra et lineært system av linjer gjennom 
-punktet vi projiserer vekk fra.
-Projiserer vi vekk fra et punkt på flaten må vi også ta hensyn til den eksepsjonelle divisoren.
+\begin{lemma}
+$S$ er snittet av et todimensjonalt lineært system av kvadrikker i $\P^4$.
+For enhver pensel av kvadrikker $\{aQ_1 + bQ_2\}$ som inneholder $S$
 
-Om vi projiserer fra et punkt på Veronese flaten får vi en flate av grad $H^2 = d^2 - 1=3$ i $\P^4$
-Denne avbildningen har et basispunkt, nemlig projiseringspunktet.
-Trekker vi tilbake punktet får vi et punkt i $\P^2$ hvor avbildningen ikke er definert.
-Avbildningen korresponderer til det lineære systemet av kvadrikker gjennom punktet.
-Blåser vi opp punktet får vi morfi $\F_1\to\P^4$.
+\begin{enumerate}
+\item
+vil snittet $Q_1\cap Q_2=S\cup P$, hvor $P$ er et plan i $\P^4$, og 
+\item
+$S\cap P$ er et kjeglesnitt.
+\end{enumerate}
 
-Vi har at $\F_1=\P(\mathcal O _ {\P^1}\oplus \mathcal O _ {\P^1}(1))$, så Picard-gruppen er generert av to elementer $h,f$.
-\todo {Bruk at det er generert av de to divisorene til å argumentere for at det ikke finnes flere linjer}
+\end{lemma}
+\begin{proof}
+Kvadrikkene snitter $S$ i de strikte transformene av kvartrikkene i $\P^2$ som går igjennom $0$ med multiplisitet $2$. \todo{Hvorfor det?}
+Å snitte et punkt $2$ ganger innfører tre lineære begrensninger på plane kurver, så rommet av kvintikker representert som snittet av en kvadrikk
+og $S$ er et underrom av $\mathcal O _ {\P^2}(4)$ av kodimensjon $3$.
+Vi har at $\mathcal O _ {\P^2}(4)$ har samme dimensjon som $\mathcal O _ {\P^4}(2)$,
+så vi har minst tre lineært uavhengige kvadrikker som ikke gir opphav til kvintikker på $S$,
+og må derfor inneholde hele $S$.
 
-Vi kan så enten projisere fra et generelt punkt eller et nytt punkt på flaten.
-Om vi projiserer fra et generelt punkt endrer vi opp med 
+To slike kvadrikker $Q_1,Q_2$ må være irredusible,\todo{Hvorfor det?}
+så de snitter i en fjerdegradflate som inneholder $S$ av grad $3$,
+og må derfor være på formen $S\cup P$ for et plan $P$, og (1) følger.
 
-# Oversikt
+La $M=L=0$ være likningene som beskriver planet $P$.
+Da finnes lineære former $A_i,B_i$ slik at likningen $A_iM + B_iL=0$ beskriver kvadrikken $Q_i$ for $i=1,2$.
+Vi har at produktet 
+$\begin{bmatrix}
+A_1&B_1\\
+A_2&B_2
+\end{bmatrix}
+\begin{bmatrix}
+L\\M
+\end{bmatrix}
+$
+forsvinner på snittet $Q_1\cap Q_2$.
+Vektoren dreper planet, så matrisen står for å ta livet av $S$.
+Det medfølger at determinanten $A_1B_2 - A_2B_1$ forsvinner på alle punktene i $S\setminus P$,
+så $S\subset Q_3$ definert av likninga $A_1B_2 - A_2B_1 = 0$.
+
+$Q_3$ er en kvadrikk, så snittet $P\cap S=P\cap Q_3$ definerer et kjeglesnitt.
+\end{proof}
+
+\begin{proposition}
+Den generelle projiseringen av $S$ er en kubisk flate $S'\in\P^3$ som bare er singulær i en dobbel linje.
+\end{proposition}
+\begin{proof}
+La $Q_1,Q_2$ være to kvadrikker som inneholder $S$ og et punkt $p\in\P^4\setminus S$.
+Vi har $Q_1\cap Q_2=S\cup P$ ved forrige proposisjon, hvor $p\in P$.
+Alle bisekanter i $S$ gjennom $p$ kutter kvadrikkene i tre punkter,
+så hele bisekanten er inneholdt i snittet,
+og dermed i $P$.
+Snittet $S\cap P$ er en kjegle, så snittet projiseres to til en,
+mens $S$ ellers projiseres isomorft.
+\end{proof}
+
+Det er en symmetri i om vi velger å projisere fra et generelt punkt først, og så fra et punkt på flaten, eller omvendt.
+
+# Det lineære systemet gjennom to punkter
+
+Betrakter vi heller det lineære systemet av kvadrikker gjennom to punkter i $\P^2$
+tilsvarer det å projisere $S$ fra et punkt på flaten utenfor den eksepsjonelle divisoren.
+Blåser vi opp de to punktene får vi en avbildning $\tilde{P^2}\to \P^3$
+definert av det lineære systemet
+$|2h - E - E^\prime|$
+hvor $E,E^\prime$ er de to uavhengige lineære systemene.
+Bildet definerer en flate $Q$ av grad $H^2=(2h - E - E^\prime)^2= 4 - 2=2$.
+
+Blåser vi opp den andre gangen i et punkt på den eksepsjonelle divisoren tilsvarer
+det å se på alle kvadrikker gjennom punktet med en bestemt retning.
+
+# Flatene ned til $\P^3$
 
 Vi får følgende diagram av flater med projeksjoner imellom
 
@@ -122,4 +189,11 @@ $$
 
 Vertikale piler representerer generiske projeksjoner,
 mens diagonale er projeksjoner fra punkter på flaten.
+
+# Kvadrikker gjennom flere punkter
+
+Ravi Vakil sine notater fortsetter oppblåsningene til flere punkter.
+Det lineære systemet av kvadrikker gjennom tre punkter som ikke ligger på samme linje er beskrevet av
+$|2h - E - E^\prime - E^{\prime\prime}|$.
+Bildet ligger nå i $\P^2$ og er nødvendigvis en flate av grad $1$.
 
