@@ -5,7 +5,7 @@ PDFS = $(patsubst %.md, $(PDFDIR)/%.pdf, $(DEPS))
 
 all: $(PDFS)
 
-$(PDFDIR)/%.pdf : %.md $(PDFDIR)
+$(PDFDIR)/%.pdf : %.md
 	pandoc $< -o $@
 
 $(PDFDIR) :
