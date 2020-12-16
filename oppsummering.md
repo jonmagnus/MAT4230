@@ -7,10 +7,15 @@ header-includes: |
     \usepackage{todonotes}
     \usepackage{tikz-cd}
     \usepackage{amsthm}
-    \newtheorem{theorem}{Theorem}
+    \newtheorem{theorem}{Teorem}
+    \newtheorem{lemma}{Lemma}
+    \newtheorem{proposition}{Proposisjon}
+    \newtheorem{corollary}{Korollar}
     \newcommand{\Pic}{\textrm{Pic}}
     \renewcommand{\O}{\mathcal O}
     \newcommand{\R}{\mathbb R}
+    \newcommand{\Z}{\mathbb Z}
+    \renewcommand{\P}{\mathbb P}
 ...
 
 \tableofcontents
@@ -82,9 +87,97 @@ $$
 \end{proof}
 
 # Kapittel 2 -- Birationale avbildninger
+En birasjonal avbildning er en isomorfi mellom to åpne underrom av varietetene den avbilder imellom,
+og muligens udefinert utenfor.
+For flater dekomponeres avbildninger gjennom serier med oppblåsninger og nedblåsninger.
 
+\begin{lemma}
+Om en divisor $C$ går igjennom oppblåsningspunktet $p$ med multiplisitet vil pullback av
+divisoren i oppblåsningen bli $\epsilon^ * C = \tilde C + mE$ hvor $\tilde C$ er
+den strikte transformen og $E$ den eksepsjonelle divisoren.
+\end{lemma}
+\todo{Add proof: analytic}
+
+\begin{lemma}
+La $\epsilon \colon \tilde S\to S$ være en oppbåsning.
+Da har vi
+\begin{enumerate}
+\item
+    Vi har en isomorfi $\Pic S\oplus \Z\to \Pic \tilde S$ gitt ved $(D,n)\mapsto \epsilon^*D + nE$.
+\item
+    $(\epsilon^*D).(\epsilon^*D^\prime)=D.D'^\prime$
+\item
+    $K_{\tilde S}=\epsilon^*K_S + E$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item
+    Den er tydelig surjektiv siden $\epsilon$ er en isomorfi utenfor $p$.
+    Ved snittallet kan vi se at kjernen også er null.
+\item
+    Om vi velger to lineært ekvivalente divisorer som går utenom $p$ blir resultatet åpenbart.
+\item
+    Bruker genusformelen. \todo{Undersøk dette nærmere}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Eliminasjon av ubestemmelser]
+\label{thm:elimination-of-indeterminancy}
+Om vi har en rasjonal avbildning $\phi\colon S\dashrightarrow X$
+fra en glatt flate til en projektiv varietet, kan vi blåse opp $S$
+endelig mange ganger til flate $\eta\colon S^\prime\to S$ slik at vi får en morfi
+$f\colon S^\prime\to X$ og $\phi\eta=f$.
+\end{theorem}
+
+\begin{proof}
+Vi kan erstatte $X$ med det minste projektive rommet som ínneholder $X$.
+Deretter kan vi identifisere avbildnignen med et lineært system.
+Om systemet har basispunkter blåser vi opp det punktet, og om vi
+ikke har flere basispunkter har vi en morfi.
+Om vi passer på å fjerne den eksepsjonelle divisoren i hvert steg vil ikke systemene ha
+noen fiks komponent, så sekvensen vil til slutt terminere når vi ikke lenger har basispunkter.
+\end{proof}
+
+\begin{proposition}[Universalegenskapen ved oppbåsninger]
+Om vi har en birational morfi $f\colon X\to S$ slik at inversavbildningen er
+udefinert i et punkt $p\in S$ faktoriseres $f$ gjennom
+en oppblåsning $\epsilon\colon\tilde S\to S$
+$$
+f=\epsilon g\colon X\to \tilde S\to S
+$$
+\end{proposition}
+
+\begin{theorem}
+La $f\colon S\to S_0$ være en birasjonal morfi av flater.
+Da kan vi gjøre en serie oppblåsninger slik at vi vår en isomorfi
+$u\colon S\to S_n$ og $f=(\prod \epsilon_i)u$.
+\end{theorem}
+\begin{proof}
+Vi gjør induksjon hvor induksjonssteget følger fra universalegenskapen til oppblåsningen.
+At sekvensen terminerer følger av at en birasjonal morfi av flater alltid kontakterer
+endelig mange irredusible kurver og oppblåsningen kontakterer bare den eksepsjonelle divisoren.
+\end{proof}
+
+\begin{corollary}
+En birasjonal avbildning mellom flater kan skrives som en serie oppblåsninger og nedblåsninger.
+\end{corollary}
+\begin{proof}
+Dette følger umiddelbart fra forrige teorem og teorem \ref{thm:elimination-of-indeterminancy}.
+\end{proof}
+
+\begin{theorem}[Castelnuovos kontraksjonskriterium]
+En kurve $E\subset S$ er eksepsjonell hvis og bare hvis $E^2=-1$ og $E\simeq \P^1$.
+\end{theorem}
+\begin{proof}
+Tanken er å finne et hyperplansnitt på $S$ slik at vi kan embedde flaten likt i projektivt rom
+utenfor kurven og slik at kurven kontrakteres til et punkt.
+\todo{Undersøk dette lange bviset}
+\end{proof}
 
 # Kapittel 3 -- Regerte flater
+
 # Kapittel 4 -- Rasjonale flater
 # Kapittel 5 -- Castelnuovo
 # Kapittel 6
