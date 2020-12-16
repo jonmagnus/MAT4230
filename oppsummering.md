@@ -13,6 +13,7 @@ header-includes: |
     \newtheorem{corollary}{Korollar}
     \renewcommand{\proofname}{Bevis}
     \newcommand{\Pic}{\textrm{Pic}}
+    \newcommand{\Alb}{\textrm{Alb}}
     \renewcommand{\O}{\mathcal O}
     \newcommand{\R}{\mathbb R}
     \newcommand{\Z}{\mathbb Z}
@@ -339,10 +340,89 @@ får vi $P_2 = q = 0$, så flaten er rasjonal.
 En minimal rasjonal flate er isomorf med en av de geometrisk reglerte flatene over $\P^1$ $\F_n$.
 \end{theorem}
 
-\todo {Albanesen}
+## Albanesen
+\begin{theorem}
+For enhver glatt varietet $X$
+finnes en abelsk varietet $A$ og en avbildning
+$\alpha\colon X\to A$ med følgende universalegenskap:
+    
+    for alle komplekse tori $T$ og enhver morfi
+    $f\colon X\to T$
+    finnes en unik faktorisering 
+    $\tilde f\colon A\to T$ gjennom $\alpha$.
+
+Denne varieteten er unik opp til isomorfi.
+$alpha$ induserer en isomorfi
+$\alpha^ * \colon H^0(A, \omega_A^1)\to H^0(X,\omega_X^1)$.
+\end{theorem}
+
+Vi kaller denne abelske varieteten for albanesen til
+$X$ og betegner den $\Alb(X)$.
+
+\begin{lemma}
+\label{thm:5-15}
+La $S$ være en flate og $\alpha\colon S\to\Alb(S)$
+være albaneseavbildningen.
+Om $\alpha(S)$ er en kurve vil kurven ha genus $q$ og fibrene vil være sammenhengende.
+\end{lemma}
+
+\begin{lemma}
+\label{thm:5-18}
+Om $S$ er en flate med $p_g =0$ og $q\geq 1$
+vil bildet av flatne under albaneseavbildningen være en kurve.
+\end{lemma}
+
 \todo {Stein-faktorisering}
 
 # Kapittel 6
+
+\begin{lemma}
+\begin{enumerate}
+\item
+    La $S$ være en flate med $p_g=0, q\geq 1$.
+    Da har vi $K^2\leq 0$,
+    og $K^2 < 0$ med mindre $q=1$ og $b_2 = 2$.
+\item
+    La $S$ være en minimal flate.
+    Om $K^2 < 0$ har vi $p_g =0$ og $q\geq 1$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Ved Noethers formel får vi
+$$\begin{aligned}
+12 - 12q &= K^2 + 2 - 4q + b_2\\
+&\Updownarrow\\
+K^2 &= 10 - 8q - b_2
+\end{aligned}
+$$
+
+\begin{enumerate}
+\item
+    La $\alpha\colon S\to B$ være albaneseavbildningen med $B = \Alb(S)$.
+    Vi ser at $B$ er en kurve ved lemma \ref{thm:5-18},
+    og den er elliptisk ved lemma \ref{thm:5-15}.
+    \todo{Mystisk argument i Beauville}
+\item
+    Anta $p_g\neq 0$.
+    Anta det finnes $D\in |K|$ slik at $D=\sum n_i C_i$ med $n_i>0$.
+    Siden $K.D<0$ må det finnes $i$ slik at $K.C_i<0$,
+    som igjen medfører at $C_i^2 < 0$,
+    men da må $C_i$ være eksepsjonell som motsier
+    \todo{Hvorfor må $C_i$ være eksepsjonell? dvs hvorfor kan den ikke ha lavere selvsnitt?}
+    minimaliteten til $S$,
+    så $K$ har ikke seksjoner.
+    Tilsvarende argument holder for andre plurigeneraene.
+
+    Om $q=0$ får vi at $S$ er rasjonal,
+    så $K^2=8$ eller $9$.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Om $S$ er minimal og $K^2< 0$ så er $S$ reglert.
+\end{proposition}
+
+Spesielt er $S$ reglert over albanesen.
 
 # Kapittel 7 -- Kodaira dimensjon
 Vi definerer kodaira-dimensjonen til en projektiv varietet med kanonisk divisor $K$
@@ -361,6 +441,7 @@ P_n=0\,\forall n\geq 0\\
 $$
 
 # Kapittel 8 -- Kodaira dimensjon null
+
 # Kapittel 9 -- Elliptiske flater
 
 En flate $S$ er elliptisk dersom det finnes en projeksjon
@@ -441,7 +522,21 @@ Vi vet at dette igjen er isomorft med $\P^2$ blåst opp i seks punkter.
 
 
 ## Reglerte flater: Picard gruppe, RR og numeriske invarianter
+
 ## Snitt-produktet på sammenhengende kurver som blir kontraktert ved en morfi
 ## Minimale flater, eksistens og entydighet
-## K3-flater: RR og projektive modeler av grad mindre enn $10$
+Minimale flater er entydige for ikke-reglerte flater.
+
+## K3-flater: RR og projektive modeller av grad mindre enn $10$
+En flate $S$ er K3 dersom $K\cong 0$ og $q=0$.
+
+\begin{lemma}
+K3-flater er minimale.
+\end{lemma}
+\begin{proof}
+Anta vi har en eksepsjonell kurve $E$.
+Ved genusformelen har vi $g(E)=1 + \frac 1 2(C^2 + C.K) = 1 + \frac 1 2 C^2$,
+men da får vi $C^2 = -2$ som motsier at den er eksepsjonell.
+\end{proof}
+
 ## Elliptiske flater
