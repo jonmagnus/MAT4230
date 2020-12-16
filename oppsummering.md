@@ -387,8 +387,26 @@ $S$ inneholder en linje.
 \begin{lemma}
 La $l\subset S$ være en linja.
 Da finnes det $10$ andre linjer på $S$ som krysser $l$,
-og de kan pares i $5$ par slik at linjene i paret ikke snitter.
+og de danner disjunkte par av linjer som krysser $l$ i samme punkt.
 \end{lemma}
+
+\begin{lemma}
+Om tre linjer møtes i $p\in S$ er de koplane.
+\end{lemma}
+\begin{proof}
+Om vi tar hyperplanet utspent av to av linjene får
+vi en kubikk, men siden vi allerede har to linjer som
+komponenter må den resterende komponenten være den siste linja.
+\end{proof}
+
+\begin{lemma}
+Det finnes to disjunkte linjer på $S$.
+\end{lemma}
+\begin{proof}
+Om vi tar utgangspunkt i $l$ og et par $(d,d^\prime)$
+har vi ikke plass til flere linjer i snittplanet,
+så en linje fra et annet par vil være disjunkt fra både $d$ og $d^\prime$.
+\end{proof}
 
 \begin{proof}[Bevis av teorem \ref{thm:4-13}]
 La $l,l^\prime\subset S$ være to disjunkte linjer.
@@ -397,9 +415,28 @@ ved å sende $(p, p^\prime)$ på punktet $q\in \langle p, p^\prime \rangle \cap 
 forskjellig fra $p, p^\prime$.
 
 Tilsvarende kan vi definere en rasjonal avbildning $\psi\colon S\dashrightarrow l\times l^\prime$
-ved å sende $s\in S\setminus l\setminus l^\prime$ på $(p, p^\prime)$
+ved å sende $s\in S\setminus (l\cup l^\prime)$ på $(p, p^\prime)$
 hvor $p=l\cap\langle s,l^\prime\rangle$
 og $p^\prime=l^\prime\cap\langle s, l\rangle$.
+
+Vi ser at $\phi$ og $\psi$ er inverse avbildninger, så hver er en birasjonal avbildning.
+
+Videre kan $\psi$ utvides til hele $S$ ved å bruke tangentplanet istedenfor
+$\langle s, l \rangle$ og $\langle s, l^\prime\rangle$
+på henholdsvis $l$ og $l^\prime$.
+Dermed blir $\psi$ en birasjonal morfi.
+
+Vi vet at det finnes fem par linjer $(d_i, d_i^\prime)$ som skjærer $l$.
+Ser vi på planet gjennom tre linjer $d_i, d_i^\prime$ og $l$ skjærer dette
+$l^\prime$ i ett punkt, som ligger på enten $d_i$ eller $d_i^\prime$.
+Vi kan anta punktet ligger på $d_i$.
+Det er ikke vanskelig å se at alle punktene på linja $d_i$ vil sendes
+på $(d_i\cap l, d_i\cap l^\prime)$,
+så $\psi$ kontrakterer de fem disjunkte linjene.
+
+Dermed blir $S$ isomorft med $l\times l^\prime \simeq \P^1\times \P^1$
+blåst opp i $5$ punkter.
+Vi vet at dette igjen er isomorft med $\P^2$ blåst opp i seks punkter.
 \end{proof}
 
 
