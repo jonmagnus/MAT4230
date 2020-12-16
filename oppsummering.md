@@ -11,6 +11,7 @@ header-includes: |
     \newtheorem{lemma}{Lemma}
     \newtheorem{proposition}{Proposisjon}
     \newtheorem{corollary}{Korollar}
+    \renewcommand{\proofname}{Bevis}
     \newcommand{\Pic}{\textrm{Pic}}
     \renewcommand{\O}{\mathcal O}
     \newcommand{\R}{\mathbb R}
@@ -299,18 +300,109 @@ Irrasjonalitet blir summen av genusene, så tilsvarende får vi $q(S) = g(C)$.
 \end{proof}
 
 # Kapittel 4 -- Rasjonale flater
+\begin{lemma}
+En projeksjon er en morfi hvis og bare hvis linjene gjennom punktet snitter flaten
+i ett punkt talt med multiplisitet.
+\end{lemma}
+
+\begin{proposition}
+Alle flater er isomorfe til en glatt flate i $\P^5$.
+\end{proposition}
+\begin{proof}
+Vi kan vise at rommet utspent av alle bisekanter er en undervarietet av dimensjon mindre enn $5$.
+Resultatet følger umiddelbart fra lemmaet over.
+\end{proof}
+
+\begin{theorem}
+\label{thm:4-13}
+Alle tredjegradsflater i $\P^3$ er oppblåsningen av $P^2$ i $6$ punkter.
+\end{theorem}
 
 # Kapittel 5 -- Castelnuovo
+\begin{theorem}[Castelnuovos rasjonalitetskriterium]
+$S$ er rasjonal om $q = P_2 = 0$. En følgelig og tilstrekkelig erstatning for kriteriet $P_2=0$ er $g=0$.
+\end{theorem}
+
+En flate er rasjonal om det finnes en dominant rasjonal avbildning fra et projektivt rom ned på flaten.
+En flate er rasjonal om det finnes en birasjonal avbildning mellom flaten og et projektivt rom.
+
+\begin{corollary}[Castelnuovos teorem]
+Enhver unirasjonal flate er rasjonal.
+\end{corollary}
+\begin{proof}
+Vi kan blåse opp for unirasjonale avbildning til en morfi.
+Siden plurigenera og irrasjonalitet er birasjonale invarianter,
+får vi $P_2 = q = 0$, så flaten er rasjonal.
+\end{proof}
+
+\begin{theorem}
+En minimal rasjonal flate er isomorf med en av de geometrisk reglerte flatene over $\P^1$ $\F_n$.
+\end{theorem}
+
+\todo {Albanesen}
+\todo {Stein-faktorisering}
+
 # Kapittel 6
+
 # Kapittel 7 -- Kodaira dimensjon
+Vi definerer kodaira-dimensjonen til en projektiv varietet med kanonisk divisor $K$
+som den største dimensjonen $\phi _ {nK}(V)$ kan ha for $n\geq 1$,
+hvor $\phi _ {nK}$ betegner avbildnignen definert av det lineære systemet $|nK|$.
+Det følger automatisk at kodaira-dimensjonen til en flate aldri er større enn $2$.
+
+Vi sier den tomme mengden har dimensjon $-\infty$.
+$$\begin{aligned}
+\kappa(S)=-\infty
+&\Leftrightarrow
+P_n=0\,\forall n\geq 0\\
+&\Leftrightarrow
+\textrm{S er reglert}
+\end{aligned}
+$$
+
 # Kapittel 8 -- Kodaira dimensjon null
 # Kapittel 9 -- Elliptiske flater
+
+En flate $S$ er elliptisk dersom det finnes en projeksjon
+$p\colon S\to B$ for en glatt kurve $B$ slik at den generiske fiberen er en elliptisk kurve.
+
 # Kapittel 10 -- Generell type
 
 # Temaer
 ## Snitt-produkt og RR for flater
+Se kapittel 1.
+
 ## Lineære systemer for kjeglesnitt i planet
+Det lineære systemet av kvadrikker i $\P^2$ korresponderer til Veronese-avbildningen av grad $2$ inn i $\P^5$.
+
 ## En glatt tredjegradsflate er $P^2$ blåst opp i $6$ punkter
+
+Teorem \ref{thm:4-13} forteller oss at alle glatte tredjegradsflater $S\subset \P^3$ er oppblåsninger av $\P^2$ i $6$ punkter.
+Beviset for denne påstanden bygger på følgende lemmaer
+
+\begin{lemma}
+$S$ inneholder en linje.
+\end{lemma}
+
+\begin{lemma}
+La $l\subset S$ være en linja.
+Da finnes det $10$ andre linjer på $S$ som krysser $l$,
+og de kan pares i $5$ par slik at linjene i paret ikke snitter.
+\end{lemma}
+
+\begin{proof}[Bevis av teorem \ref{thm:4-13}]
+La $l,l^\prime\subset S$ være to disjunkte linjer.
+Vi kan definere en rasjonal avbildning $l\times l^\prime \dashrightarrow S$
+ved å sende $(p, p^\prime)$ på punktet $q\in \langle p, p^\prime \rangle \cap S$
+forskjellig fra $p, p^\prime$.
+
+Tilsvarende kan vi definere en rasjonal avbildning $\psi\colon S\dashrightarrow l\times l^\prime$
+ved å sende $s\in S\setminus l\setminus l^\prime$ på $(p, p^\prime)$
+hvor $p=l\cap\langle s,l^\prime\rangle$
+og $p^\prime=l^\prime\cap\langle s, l\rangle$.
+\end{proof}
+
+
 ## Reglerte flater: Picard gruppe, RR og numeriske invarianter
 ## Snitt-produktet på sammenhengende kurver som blir kontraktert ved en morfi
 ## Minimale flater, eksistens og entydighet
