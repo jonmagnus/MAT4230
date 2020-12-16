@@ -15,6 +15,7 @@ header-includes: |
     \renewcommand{\O}{\mathcal O}
     \newcommand{\R}{\mathbb R}
     \newcommand{\Z}{\mathbb Z}
+    \newcommand{\F}{\mathbb F}
     \renewcommand{\P}{\mathbb P}
 ...
 
@@ -51,7 +52,7 @@ Ved bilinearitet kan vi skrive om til uttrykket i påstanden.
 
 
 ## Noethers formel
-Noethers formel fortelleross om sammenhengen mellom algebraisk eulerkarakteristikk og topologisk
+Noethers formel forteller oss om sammenhengen mellom algebraisk eulerkarakteristikk og topologisk
 eulerkarakteristikk, hvor førstnevnte er definert som den alternerende summen av dimensjonen
 til de globale seksjonene av det spesifikke knippet, mens sistnevnte er definert som den alternerende summen
 av betti-tallene, altså den alternerende summen den reelle dimensjonen til de globale seksjonene til
@@ -177,8 +178,128 @@ utenfor kurven og slik at kurven kontrakteres til et punkt.
 \end{proof}
 
 # Kapittel 3 -- Regerte flater
+En kurve er reglert om den er birasjonal til $C\times\P^1$ for en glatt kurve $C$.
+$P^1\times\P^1$ er birasjonal til $P^2$, så om $C=\P^1$ er flaten rasjonal.
+
+En geometrisk reglert flate er en flate med en glatt $\P^1$-reglering over en glatt kurve $C$.
+
+\begin{theorem}[Noether-Enriques]
+\label{thm:noether-enriques}
+La $p\colon S\to C$ være en morfi fra en flate til en glatt kurve.
+Om det finnes et $\P^1$-fiber hvor $p$ er glatt kan vi lage et omegn $U\subset C$ og
+en isomorfi $p^{-1}(U)\simeq U\times \P^1$. Spesielt er da flaten reglert.
+\end{theorem}
+\begin{proof}
+\todo{fullfør bevis}
+\end{proof}
+
+\begin{lemma}
+De geometrisk reglerte flatene over over en irrasjonal kurve er minimale.
+\end{lemma}
+\begin{proof}
+Anta for motsigelse at det finnes en kurve $E\simeq \P^1$.
+Siden den har negativt selvsnitt, spesielt ikke-null, kan den ikke være et fiber,
+så $p(E)=C$, men dette gir oss at $C$ er rasjonal, en motsigelse.
+\end{proof}
+
+\begin{theorem}
+La $C$ være en glatt irrasjonal kurve.
+De minimale modellene for $C\times \P^1$ er de geometriske 
+reglerte over $C$, altså de projektive buntene $\P_C(E)$ for divisorer $E$.
+\end{theorem}
+\begin{proof}
+Det gjenstår å vise at minimale modeller er isomorfe til en geometrisk reglert flate.
+La $S$ være en reglert flate over $C$ slik at vi har en birasjonal avbildning
+$\phi\colon S\dashrightarrow C\times \P^1$.
+Videre har vi en projeksjon $p\colon C\times \P^1\to C$
+som gir opphav til en rasjonal avbildning $p\phi\colon S\dashrightarrow C$.
+
+Vi kan utvide denne avbildningen til en morfi fra en oppblåsning av $S$ ned på $C$.
+Siden $C$ ikke er rasjonal må de eksepsjonelle divisorene kontrakteres til punkter på $C$,
+men om de eksepsjonelle divisorene kontrakteres til punkter på $C$ hadde vi utgangspunktet ingen
+grunn til å blåse opp, så $p\phi$ er en morfi og $S$ var geometrisk reglert til å begynne med.
+\end{proof}
+
+\begin{theorem}[Riemann-Roch for vektorbunter av rang 2]
+$$\chi (E) = \deg (E) + 2 - 2g(C)$$
+\end{theorem}
+\todo{}
+
+## Projektive bunter
+\begin{proposition}
+La $p\colon \P_C(E)=S\to C$ være en geometrisk reglert flate,
+og la $h\in \Pic S$ være divisorklassen til $\O_S(1)$.
+\begin{enumerate}
+\item
+    $\Pic S = p^*\Pic C\oplus \Z h$.
+\item
+    $H^2(S,\Z) =\Z h\oplus \Z f$, hvor $f$ er divisorklassen til en fiber.
+\item
+    $h^2=\deg(E)$.
+\item
+    $[K] = -2h + (\deg(E) + 2g(C) - 2)f$ i $H^2(S, \Z)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item
+    $F.h=1$ for alle fibre $F$,
+    så alle divisorer kan skrives på formen $D + mh$ slik at $D.F = 0$.
+
+    La $D_n=D + nF$.
+    Det følger at
+    \begin{itemize}
+    \item $D_n^2 = D^2$
+    \item $D_n.K = D.K - 2n$
+    \item $h^0(K - D_n)=0$ for tilstrekkelige store $n$.
+    \end{itemize}
+    Det følger at $|D_n|$ er ikketom for tilstrekkelig store $n$,
+    og for $E\in|D_n|$ snitter det ingen fibre,
+    så hver komponent må være et fiber
+    og $E$ pulback av en divisor på $C$.
+\item
+    \todo{Vurder å gjennomføre bevis for de andre punktene}
+\end{enumerate}
+\end{proof}
+
+## Numeriske invarianter
+Vi betegner plurigeneraene til en flate $S$ ved
+$$
+P_n(S) = h^0(S, \O_S(nK))
+$$
+for $n\geq 1$ og irregulariteten 
+$$
+q(S) = h^1(S,\O_S)
+$$.
+
+Spesielt har vi ved Serre-dualitet $p_g(S) = P_1(S)=h^2(S,\O_S)$.
+Hodge-teori forteller oss også at $q(S) = h^0(S,\Omega_S^1) = \frac 1 2 b_1(S)$,
+hvor $b_i$ betegner betti-tallene.
+Ved Poincaré-dualitet får vi $b_0 = b_4 = 1$ og $b_1 = b_3$,
+så topologisk eulerkarakteristikk blir $\chi _ {\textrm{top}}(S) = 2 - 2b_1 + b_2$.
+
+\begin{proposition}
+$q$ og $P_n(S)$ er numeriske invarianter.
+\end{proposition}
+
+\begin{proposition}
+For reglerte flater $S$ over $C$ har vi
+\begin{itemize}
+\item $q(S) = g(C)$
+\item $P_n(S) = 0$
+\end{itemize}
+Hvis $S$ er geometrisk reglert har vi $K^2_S = 8(1 - g(C))$ og $b_2(S) = 2$.
+\end{proposition}
+\begin{proof}
+Siden plurigenera og irrasjonalitet er birasjonale invarianter kan vi anta at $S = C\times \P_1$.
+Plurigenera for flaten blir produktet av plurigeneraene til faktorene i produktet,
+så siden $P_n(\P^1)=0$ gjelder det samme for flaten.
+Irrasjonalitet blir summen av genusene, så tilsvarende får vi $q(S) = g(C)$.
+\end{proof}
 
 # Kapittel 4 -- Rasjonale flater
+
 # Kapittel 5 -- Castelnuovo
 # Kapittel 6
 # Kapittel 7 -- Kodaira dimensjon
