@@ -11,6 +11,7 @@ header-includes: |
     \newtheorem{lemma}{Lemma}
     \newtheorem{proposition}{Proposisjon}
     \newtheorem{corollary}{Korollar}
+    \newtheorem{remark}{Bemerkning}
     \renewcommand{\proofname}{Bevis}
     \newcommand{\Pic}{\textrm{Pic}}
     \newcommand{\Alb}{\textrm{Alb}}
@@ -34,6 +35,12 @@ som gir oss en morfi $f^ * \colon \Pic X\to\Pic S$ for glatte skjemaer $X$.
 Om $f$ er surjektiv kan vi også trekke tilbake divisorer, på en måte som er
 kompatibel med korrespondansen av invertible knipper og divisorer,
 altså $f^ * \O_X(D) = \O_S(f^ * D)$.
+
+Vi definerer snittet til to divisorer $L,L^\prime\in\Pic S$ ved
+$$L.L^\prime = \chi (\O_S) - \chi(-L) - \chi(-L^\prime) + \chi(-L - L^\prime)$$.
+
+hvor $\chi(\O_S(D)) = \sum (-1)^i h^i(D)$ er Euler-Poincaré karakteristikken
+for knipper $\O_S(D)$.
 
 ## Riemann-Roch 
 \begin{theorem}[Riemann-Roch for flater]
@@ -67,7 +74,9 @@ $b_i=\dim _ \R H^i(S,\R)$.
 
 ## Genusformelen
 \begin{theorem}[Genusformelen]
-For en irredusibel kurve $C$ har vi $g(c):=h^1(C,\O_C)=1 + \frac 1 2 (C^2 + C.K)$.
+For en irredusibel kurve $C$ har vi $g(C):=h^1(C,\O_C)=1 + \frac 1 2 (C^2 + C.K)$.
+Kanskje mer kjent kan den skrives
+$$C^2 + C.K = 2g(C) - 2$$
 \end{theorem}
 \begin{proof}
 Vi har følgende eksakte sekvens
@@ -447,6 +456,14 @@ $$
 En flate $S$ er elliptisk dersom det finnes en projeksjon
 $p\colon S\to B$ for en glatt kurve $B$ slik at den generiske fiberen er en elliptisk kurve.
 
+\begin{theorem}
+Alle flater med $\kappa=1$ er elliptiske.
+\end{theorem}
+
+\begin{remark}
+Motsatte påstand holder ikke, men $\kappa\leq 1$.
+\end{remark}
+
 # Kapittel 10 -- Generell type
 
 # Temaer
@@ -524,6 +541,10 @@ Vi vet at dette igjen er isomorft med $\P^2$ blåst opp i seks punkter.
 ## Reglerte flater: Picard gruppe, RR og numeriske invarianter
 
 ## Snitt-produktet på sammenhengende kurver som blir kontraktert ved en morfi
+Se på VIII-3 til 5. 
+
+
+
 ## Minimale flater, eksistens og entydighet
 Minimale flater er entydige for ikke-reglerte flater.
 
@@ -538,5 +559,45 @@ Anta vi har en eksepsjonell kurve $E$.
 Ved genusformelen har vi $g(E)=1 + \frac 1 2(C^2 + C.K) = 1 + \frac 1 2 C^2$,
 men da får vi $C^2 = -2$ som motsier at den er eksepsjonell.
 \end{proof}
+
+Formelen for Riemann-Roch kan forenkles når $K\cong 0$,
+siden alle snitt blir trivielle.
+
+\begin{lemma}
+Om $S$ er K3 får vi $C.K=0$ for alle $C\in\Pic S$.
+\end{lemma}
+\begin{proof}
+Dette følger fra definisjonen av snittproduktet:
+$$\begin{aligned}
+C.K
+&= \chi(\O_S) - \chi(-C) - \chi(-K) + \chi(-C - K)\\
+&= \chi(0) - \chi(-C) - \chi(0) + \chi(-C)\\
+&= 0
+\end{aligned}
+$$
+\end{proof}
+
+\begin{corollary}
+Om $S$ er K3 kan Riemann-Roch forenkles til
+$$C^2 = 2(\chi(C) - \chi(\O_S))$$.
+\end{corollary}
+
+\begin{proposition}
+La $S$ være en K3-flate,
+og $C\subset S$ en glatt kurve av genus $g$.
+\begin{enumerate}
+\item
+    $C^2 = 2g - 2$, og $h^0(C) = g + 1$.
+\item
+    Hvis $g\geq 1$ så har ikke $|C|$ basispunkter,
+    og definerer dermed en mnorfi
+    $\phi\colon S\to\P^g$.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+For enhver grad partallig grad $d$ finnes det en irredusibel $19$-dimensjonal familie av
+K3-flater av grad $d$.
+\end{theorem}
 
 ## Elliptiske flater
